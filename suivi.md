@@ -32,4 +32,6 @@
 - 31.1.25
     - 14h00-14h40 -> On a eu des consignes sur GitHub + sur l'installation de MarkDown
     - 14h45-14h45 -> Imprimer, signer et numériser le contrat de remédiation
-    - 15h00-16h00 -> Comprendre MarkDown, corriger le feedback XCL et mettre le JDT dans le MarkDown
+    - 15h00-15h40 -> Comprendre MarkDown, corriger le feedback XCL et mettre le JDT dans le MarkDown
+    - 15h40-16h25 -> Changer la position du tableau dans C# + des bateaux pour tous les voir et pas mettre trop de bateaux, car il y'a plusieurs types de bateaux 
+    - 16h25-16h40 -> Le professeur m'a dit de simplifier le tableau

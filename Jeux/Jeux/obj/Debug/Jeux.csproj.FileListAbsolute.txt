@@ -27,3 +27,10 @@ C:\Users\agapremakum\Desktop\Bataille_navale\Jeux\Jeux\obj\Debug\Jeux.csproj.Sug
 C:\Users\agapremakum\Desktop\Bataille_navale\Jeux\Jeux\obj\Debug\Jeux.csproj.CoreCompileInputs.cache
 C:\Users\agapremakum\Desktop\Bataille_navale\Jeux\Jeux\obj\Debug\Jeux.exe
 C:\Users\agapremakum\Desktop\Bataille_navale\Jeux\Jeux\obj\Debug\Jeux.pdb
+C:\Users\agash\OneDrive\Bureau\Jeux\Jeux\bin\Debug\Jeux.exe.config
+C:\Users\agash\OneDrive\Bureau\Jeux\Jeux\bin\Debug\Jeux.exe
+C:\Users\agash\OneDrive\Bureau\Jeux\Jeux\bin\Debug\Jeux.pdb
+C:\Users\agash\OneDrive\Bureau\Jeux\Jeux\obj\Debug\Jeux.csproj.AssemblyReference.cache
+C:\Users\agash\OneDrive\Bureau\Jeux\Jeux\obj\Debug\Jeux.csproj.CoreCompileInputs.cache
+C:\Users\agash\OneDrive\Bureau\Jeux\Jeux\obj\Debug\Jeux.exe
+C:\Users\agash\OneDrive\Bureau\Jeux\Jeux\obj\Debug\Jeux.pdb
