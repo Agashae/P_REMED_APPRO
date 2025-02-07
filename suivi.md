@@ -42,4 +42,7 @@
     - Je vous donnerai un retour sur le code prochainement
  
 - JDT
-    - ...
+        - 7.2.25
+        - 14h00-14h30 Recevoir quelques consignes concernant la méthode Pomodoro
+        - 14h30-15h00 Changer la position du tableau
+        - 15h00-16h40 Mettre tout les bateaux rouge sur le tableau et voir pour définir une position random dans le tableau pour chacun en fonction de la taille du tableau et éviter la superpostion des bateaux dans le tableau tout en prenant en compte, qu'il puisse avoir une version avec des bateaux jaunes pour l'adversaire
