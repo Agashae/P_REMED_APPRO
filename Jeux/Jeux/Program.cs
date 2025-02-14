@@ -56,9 +56,9 @@ namespace Jeux
             // J'ai appris cette commande grâce à "https://dev.to/rasheedmozaffar/working-with-the-RandomValue-class-in-c-57i0"
 
             Random RandomValue = new Random();
-            int x = RandomValue.Next(10, 17); // Génère un nombre entre 10 et 17 (17 exclu)
+            int x = RandomValue.Next(10, 17); // Génère un nombre entre 10 et 17 (17 exclu donc directement à 16)
 
-
+            x = 11;
             // mettre x pour avoir un tableau du même nombre et différent à chaque game
             int Nombre_Ligne_Utilisateur = x;
             int Nombre_Colonne_Utilisateur = x;
@@ -147,33 +147,94 @@ namespace Jeux
             Destroyers : 2 bateaux de 3 cases
             Sous-marins : 2 bateaux de 2 cases
             */
-
-            Console.ForegroundColor = ConsoleColor.Red;
-            Console.CursorSize = 100;
             
-            String Porte_Avions = ("███ ███ ███ ███ ███");
-            String Croiseurs = ("███ ███ ███ ███");
-            String Contre_Torpilleurs = ("███ ███ ███");
-            String Torpilleur = ("███ ███");
+            String Porte_Avions = ("███║███║███║███║███");
+            String Croiseurs = ("███║███║███║███");
+            String Contre_Torpilleurs = ("███║███║███");
+            String Torpilleur = ("███║███");
+
+            Console.WriteLine(x);
+            switch (x)
+            {
+                case 10:
+                    Console.SetCursorPosition(5, 10);
+                    Console.WriteLine(Porte_Avions);
+                    Console.SetCursorPosition(9, 12);
+                    Console.WriteLine(Croiseurs);
+                    Console.SetCursorPosition(21, 16);
+                    Console.WriteLine(Contre_Torpilleurs);
+                    Console.SetCursorPosition(37, 6);
+                    Console.WriteLine(Torpilleur);
+                    break;
+
+                case 11:
+                    Console.SetCursorPosition(10, 15);
+                    Console.WriteLine(Porte_Avions);
+                    Console.SetCursorPosition(23, 32);
+                    Console.WriteLine(Croiseurs);
+                    Console.SetCursorPosition(11, 23);
+                    Console.WriteLine(Contre_Torpilleurs);
+                    Console.SetCursorPosition(12, 12);
+                    Console.WriteLine(Torpilleur);
+                    break;
+
+                case 12:
+                    Console.SetCursorPosition(5, 10);
+                    Console.WriteLine(Porte_Avions);
+                    Console.SetCursorPosition(9, 12);
+                    Console.WriteLine(Croiseurs);
+                    Console.SetCursorPosition(21, 16);
+                    Console.WriteLine(Contre_Torpilleurs);
+                    Console.SetCursorPosition(38, 7);
+                    Console.WriteLine(Torpilleur);
+                    break;
+
+                case 13:
+                    Console.SetCursorPosition(5, 10);
+                    Console.WriteLine(Porte_Avions);
+                    Console.SetCursorPosition(9, 12);
+                    Console.WriteLine(Croiseurs);
+                    Console.SetCursorPosition(21, 16);
+                    Console.WriteLine(Contre_Torpilleurs);
+                    Console.SetCursorPosition(38, 7);
+                    Console.WriteLine(Torpilleur);
+                    break;
+
+                case 14:
+                    Console.SetCursorPosition(5, 10);
+                    Console.WriteLine(Porte_Avions);
+                    Console.SetCursorPosition(9, 12);
+                    Console.WriteLine(Croiseurs);
+                    Console.SetCursorPosition(21, 16);
+                    Console.WriteLine(Contre_Torpilleurs);
+                    Console.SetCursorPosition(38, 7);
+                    Console.WriteLine(Torpilleur);
+                    break;
+
+                case 15:
+                    Console.SetCursorPosition(5, 10);
+                    Console.WriteLine(Porte_Avions);
+                    Console.SetCursorPosition(9, 12);
+                    Console.WriteLine(Croiseurs);
+                    Console.SetCursorPosition(21, 16);
+                    Console.WriteLine(Contre_Torpilleurs);
+                    Console.SetCursorPosition(38, 7);
+                    Console.WriteLine(Torpilleur);
+                    break;
+
+                case 16:
+                    Console.SetCursorPosition(5, 10);
+                    Console.WriteLine(Porte_Avions);
+                    Console.SetCursorPosition(9, 12);
+                    Console.WriteLine(Croiseurs);
+                    Console.SetCursorPosition(21, 16);
+                    Console.WriteLine(Contre_Torpilleurs);
+                    Console.SetCursorPosition(38, 7);
+                    Console.WriteLine(Torpilleur);
+                    break;
+            }
 
 
-
-            Random RandomValueBoat = new Random();
-            int RandomValue_Porte_Avions = RandomValueBoat.Next(4, x); // Génère un nombre entre 10 et le nombre maximum que la variable à pris
-            int RandomValue_Croiseurs = RandomValueBoat.Next(4, x);
-            int RandomValue_Contre_Torpilleurs = RandomValueBoat.Next(4, x);
-            int RandomValue_Torpilleur = RandomValueBoat.Next(4, x);
-
-
-
-            Console.SetCursorPosition(5, RandomValue_Porte_Avions);
-            Console.WriteLine(Porte_Avions);
-            Console.SetCursorPosition(5, RandomValue_Croiseurs);
-            Console.WriteLine(Croiseurs);
-            Console.SetCursorPosition(5, RandomValue_Contre_Torpilleurs);
-            Console.WriteLine(Contre_Torpilleurs);
-            Console.SetCursorPosition(5, RandomValue_Torpilleur);
-            Console.WriteLine(Torpilleur);
 
             
         }
@@ -237,11 +298,3 @@ namespace Jeux
 
     }
 }
-
-
-
-
-        
-
-
-
