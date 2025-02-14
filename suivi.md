@@ -42,7 +42,17 @@
     - Je vous donnerai un retour sur le code prochainement
  
 - JDT
-        - 7.2.25
-        - 14h00-14h30 Recevoir quelques consignes concernant la méthode Pomodoro
-        - 14h30-15h00 Changer la position du tableau
+        - 14h00-14h30 Recevoir quelques consignes concernant la méthode Pomodoro  
+        - 14h30-15h00 Changer la position du tableau  
         - 15h00-16h40 Mettre tout les bateaux rouge sur le tableau et voir pour définir une position random dans le tableau pour chacun en fonction de la taille du tableau et éviter la superpostion des bateaux dans le tableau tout en prenant en compte, qu'il puisse avoir une version avec des bateaux jaunes pour l'adversaire
+
+## 14.2
+- Feedback XCL
+    - Journal: faites attention à mettre deux espaces à la fin des lignes pour que le rendu soit correct
+    - Journal: A l'avenir, ne mettez pas toutes les tâches ensemble avec des '... et ...' entre deux. Chacun de ces éléments doit être une entrée du journal.
+    - Dans votre repo, on ne devrait pas trouver les dossier `bin/Debug` et `obj/Debug`. Renseignez-vous sur le [.gitignore](https://talks.freelancerepublik.com/fichier-gitignore-git-comment-lutiliser/). Demandez-moi des explications si besoin.
+    - Continuez votre développement
+ 
+- JDT
+    - ...
+
