@@ -54,5 +54,9 @@
     - Continuez votre développement
  
 - JDT
-    - ...
+    - 14.2.25
+        - 14h00-14h15 Recevoir quelques consignes du professeur
+        - 14h15-14h30 Trouver le moyen de d'ajouter les ║ entre les cases et de la bonne couleur
+        - 14h30-16h00 Enlever la partie random des positions des bateaux et écrire manuellement
+        - 16h00-16h40 Problème avec mon GitHub, donc le professeur m'a aidé
 
