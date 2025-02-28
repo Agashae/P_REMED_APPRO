@@ -77,3 +77,9 @@
     ```
     - Donnez tout de suite de bons noms à vos méthodes: `EnReseau()` par exemple, plutôt que `WithVichery`
 
+- JDT
+    - 28.2.25
+        - 14h00-14h15 Apprendre à bien nommer les commits
+        - 14h15-14h45 Changer les noms de variables
+        - 15h00-16h40 Changer les méthodes pour le positionnement des bateaux
+
