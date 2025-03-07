@@ -83,3 +83,12 @@
         - 14h15-14h45 Changer les noms de variables
         - 15h00-16h40 Changer les méthodes pour le positionnement des bateaux
 
+
+## 7.3
+
+- Feedback XCL
+    - J'avais demandé de faire un bilan des objectifs, il n'a pas été fait
+    - Nommage de commit: vous n'avez pas bien compris un point de la doc, celui qui dit "Le nom de votre commit est ce que vous mettriez à la place des points de suspension". Du coup, si "ce commit permet de changer la méthode de positionnement des bateaux", le nom à donner à votre commit c'est "fix (programme): changer la méthode de positionnement des bateaux"
+    - Journal : ok, vous pouvez donner un tout petit peu plus de détails: qu'avez-vous changé ? pourquoi ?
+
+- Journal de travail
