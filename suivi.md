@@ -97,3 +97,5 @@
         - 14h45-15h30 Création des différents bateaux 
         - 15h30-15h40 Abandon du mode en ligne car je n'ai pas le temps, modification du code pour l'enlever
         - 15h40-16h40 Création du tableau d'historique + Clean mon code en ajoutant + de méthode
+        - 19h45-20h45 Problème depuis chez moi avec System.ArgumentOutOfRangeException 
+        - 21h00-21h30 Valeur X et Y choisit par l'utilisateur 

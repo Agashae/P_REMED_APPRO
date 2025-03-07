@@ -10,6 +10,11 @@ namespace Jeux
     {
         static void Main(string[] args)
         {
+            // Définir la taille du tampon de la console
+            int newBufferHeight = 50; // Par exemple, 50 lignes
+            int newBufferWidth = Console.BufferWidth; // Utiliser la largeur actuelle du tampon
+
+            Console.SetBufferSize(newBufferWidth, newBufferHeight);
             Accueil();
             Console.Read();
         }
@@ -53,6 +58,7 @@ namespace Jeux
             int NombreCase = RandomValue.Next(12, 17); // Génère un nombre entre 12 et 17 (17 exclu donc directement à 16)
 
             // mettre NombreCase pour avoir un tableau du même nombre et différent à chaque game
+
             int MargeTop = 4;
 
             Console.SetCursorPosition(4, 3);
@@ -60,6 +66,7 @@ namespace Jeux
 
 
             Console.Write("╔");
+
             int colonneActuelle = 1;
             while (colonneActuelle < NombreCase)
             {
@@ -221,9 +228,40 @@ namespace Jeux
             }
             Console.Write("═══╝");
 
-            string choix = Console.ReadLine();
 
 
+
+            Console.Write("Choissisez une valeur pour l'horizontal : ");
+            int UserValueX = Console.Read();
+            Console.WriteLine(UserValueX);
+
+            if (UserValueX <= 12 && UserValueX >= NombreCase)
+            {
+                Console.Write("Choisissez la case horizontale : ");
+            }
+            else
+
+            /*
+            int UserValueX = 0;
+
+            UserValueX = Console.Write("Choisissez la case horizontale : ");
+            
+            Console.Write(UserValueX);
+
+            
+            while (UserValueX <= 12 || UserValueX >= NombreCase)
+            {
+                Console.Write("Choisissez la case horizontale : ");
+            }
+
+            Console.Write("Choisissez la case verticale : ");
+            int UserValueY = 0;
+
+            while (UserValueY <= 12 || UserValueY >= NombreCase)
+            {
+                Console.Write("Choisissez la case verticale : ");
+            }*/
+            Console.Read();
         }
         static void DessinerBateau(int x, int y, int longueur)
         {
@@ -286,9 +324,6 @@ namespace Jeux
             Console.WriteLine("╚════════════════════════════════════════════════════════╝");
 
         }
-
-        
-
 
     }
 }
