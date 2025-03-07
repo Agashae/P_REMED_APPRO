@@ -10,20 +10,17 @@ namespace Jeux
     {
         static void Main(string[] args)
         {
-            
-
             Accueil();
-
             Console.Read();
         }
         static void Accueil()
         {
             // Dessiner les 3 "cases" pour les options
-            Console.WriteLine("╔══════════════╗  ╔══════════════╗  ╔══════════════╗");
-            Console.WriteLine("║  1. Règles   ║  ║    2. Jeu    ║  ║  3. Jeu LAN  ║");
-            Console.WriteLine("╚══════════════╝  ╚══════════════╝  ╚══════════════╝");
+            Console.WriteLine("╔══════════════╗  ╔══════════════╗ ");
+            Console.WriteLine("║  1. Règles   ║  ║    2. Jeu    ║ ");
+            Console.WriteLine("╚══════════════╝  ╚══════════════╝ ");
             Console.WriteLine();
-            Console.Write("Entrez votre choix (1, 2 ou 3) : ");
+            Console.Write("Entrez votre choix (1 ou 2) : ");
 
             string choix = Console.ReadLine();
 
@@ -35,15 +32,11 @@ namespace Jeux
             {
                 Games();
             }
-            else if (choix == "3")
-            {
-                ModeOnline();
-            }
             else
             {
-                Console.WriteLine("1, 2 ou 3, pas A ou 4....");
+                Console.WriteLine("1 ou 2, pas A ou 4....");
                 Accueil(); // Retour au menu si l'option est invalide
-     
+
             }
 
         }
@@ -57,20 +50,18 @@ namespace Jeux
             // J'ai appris cette commande grâce à "https://dev.to/rasheedmozaffar/working-with-the-RandomValue-class-in-c-57i0"
 
             Random RandomValue = new Random();
-            int NombreCase = RandomValue.Next(10, 17); // Génère un nombre entre 10 et 17 (17 exclu donc directement à 16)
+            int NombreCase = RandomValue.Next(12, 17); // Génère un nombre entre 12 et 17 (17 exclu donc directement à 16)
 
             // mettre NombreCase pour avoir un tableau du même nombre et différent à chaque game
-            int Nombre_Ligne_Utilisateur = NombreCase;
-            int Nombre_Colonne_Utilisateur = NombreCase;
             int MargeTop = 4;
 
             Console.SetCursorPosition(4, 3);
             // code ASCII
 
-            
+
             Console.Write("╔");
             int colonneActuelle = 1;
-            while (colonneActuelle < Nombre_Colonne_Utilisateur)
+            while (colonneActuelle < NombreCase)
             {
                 Console.Write("═══╦");
                 colonneActuelle++;
@@ -81,16 +72,16 @@ namespace Jeux
 
 
             int ligneActuelle = 1;
-            
-            while (ligneActuelle < Nombre_Ligne_Utilisateur)
+
+            while (ligneActuelle < NombreCase)
             {
-                
+
                 Console.Write("║");
-                
+
 
                 colonneActuelle = 1;
 
-                while (colonneActuelle < Nombre_Colonne_Utilisateur)
+                while (colonneActuelle < NombreCase)
                 {
                     Console.Write("   ║");
                     colonneActuelle++;
@@ -99,10 +90,10 @@ namespace Jeux
                 Console.SetCursorPosition(4, MargeTop++);
 
                 Console.Write("╠");
-                
+
                 colonneActuelle = 1;
-              
-                while (colonneActuelle < Nombre_Colonne_Utilisateur)
+
+                while (colonneActuelle < NombreCase)
                 {
                     Console.Write("═══╬");
                     colonneActuelle++;
@@ -117,7 +108,7 @@ namespace Jeux
 
             colonneActuelle = 1;
 
-            while (colonneActuelle < Nombre_Colonne_Utilisateur)
+            while (colonneActuelle < NombreCase)
             {
                 Console.Write("   ║");
                 colonneActuelle++;
@@ -129,38 +120,122 @@ namespace Jeux
             Console.Write("╚");
 
             colonneActuelle = 1;
-            while (colonneActuelle < Nombre_Colonne_Utilisateur)
+            while (colonneActuelle < NombreCase)
             {
                 Console.Write("═══╩");
                 colonneActuelle++;
             }
             Console.Write("═══╝");
+
             
+
+
             /*
             Alt + 219 = █
-            Cuirassé : 1 bateau de 5 cases
-            Croiseur : 1 bateau de 4 cases
-            Destroyers : 2 bateaux de 3 cases
-            Sous-marins : 2 bateaux de 2 cases
-            */
-            
             String Porte_Avions = ("███║███║███║███║███");
             String Croiseurs = ("███║███║███║███");
             String Contre_Torpilleurs = ("███║███║███");
             String Torpilleur = ("███║███");
+            */
 
-           
+            DessinerBateau(6, 5, 2);
+            DessinerBateau(9, 4, 3);
+            DessinerBateau(8, 8, 4);
+            DessinerBateau(2, 2, 5);
 
-            for (int BateauxCuirassé = 4; BateauxCuirassé < NombreCase; BateauxCuirassé++)
+            Console.Clear();
+            Title();
+
+            // mettre NombreCase pour avoir un tableau du même nombre et différent à chaque game
+            MargeTop = 4;
+
+            Console.SetCursorPosition(4, 3);
+            // code ASCII
+
+
+            Console.Write("╔");
+            colonneActuelle = 1;
+            while (colonneActuelle < NombreCase)
             {
-                Console.SetCursorPosition(5 + 4 * BateauxCuirassé - 4, NombreCase);
-                Console.WriteLine("███");
+                Console.Write("═══╦");
+                colonneActuelle++;
             }
 
+            Console.WriteLine("═══╗");
+            Console.SetCursorPosition(4, MargeTop++);
+
+
+            ligneActuelle = 1;
+
+            while (ligneActuelle < NombreCase)
+            {
+
+                Console.Write("║");
+
+
+                colonneActuelle = 1;
+
+                while (colonneActuelle < NombreCase)
+                {
+                    Console.Write("   ║");
+                    colonneActuelle++;
+                }
+                Console.WriteLine("   ║");
+                Console.SetCursorPosition(4, MargeTop++);
+
+                Console.Write("╠");
+
+                colonneActuelle = 1;
+
+                while (colonneActuelle < NombreCase)
+                {
+                    Console.Write("═══╬");
+                    colonneActuelle++;
+                }
+                Console.WriteLine("═══╣");
+                Console.SetCursorPosition(4, MargeTop++);
+
+                ligneActuelle++;
+            }
+
+            Console.Write("║");
+
+            colonneActuelle = 1;
+
+            while (colonneActuelle < NombreCase)
+            {
+                Console.Write("   ║");
+                colonneActuelle++;
+            }
+            Console.WriteLine("   ║");
+            Console.SetCursorPosition(4, MargeTop++);
+
+
+            Console.Write("╚");
+
+            colonneActuelle = 1;
+            while (colonneActuelle < NombreCase)
+            {
+                Console.Write("═══╩");
+                colonneActuelle++;
+            }
+            Console.Write("═══╝");
+
+            string choix = Console.ReadLine();
+
+
+        }
+        static void DessinerBateau(int x, int y, int longueur)
+        {
+            for (int Case = 0; Case < longueur; Case++)
+            {
+                Console.SetCursorPosition(1 + 4 * (x + Case), 2 + 2 * y);
+                Console.WriteLine("███");
+            }
         }
 
         static void Règles()
-        {   
+        {
             // pour effacer le bout de l'accueil
             Console.Clear();
 
@@ -190,12 +265,12 @@ namespace Jeux
 
 
             if (quitter == "e")
-            {   
-            Accueil();
+            {
+                Accueil();
             }
             else
             {
-            Règles();
+                Règles();
             }
 
         }
@@ -212,10 +287,8 @@ namespace Jeux
 
         }
 
-        static void ModeOnline()
-        {
-            Console.WriteLine("Hello");
-        }
+        
+
 
     }
 }

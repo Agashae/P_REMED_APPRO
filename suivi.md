@@ -92,3 +92,8 @@
     - Journal : ok, vous pouvez donner un tout petit peu plus de détails: qu'avez-vous changé ? pourquoi ?
 
 - Journal de travail
+    - 7.3.25
+        - 14h00-14h45 Aide du professeur sur l'algorithme des bateaux
+        - 14h45-15h30 Création des différents bateaux 
+        - 15h30-15h40 Abandon du mode en ligne car je n'ai pas le temps, modification du code pour l'enlever
+        - 15h40-16h40 Création du tableau d'historique + Clean mon code en ajoutant + de méthode
