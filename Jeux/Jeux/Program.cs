@@ -149,7 +149,8 @@ namespace Jeux
             DessinerBateau(9, 4, 3);
             DessinerBateau(8, 8, 4);
             DessinerBateau(2, 2, 5);
-
+            
+            /*
             Console.Clear();
             Title();
 
@@ -228,40 +229,39 @@ namespace Jeux
             }
             Console.Write("═══╝");
 
-
-
-
             Console.Write("Choissisez une valeur pour l'horizontal : ");
             int UserValueX = Console.Read();
-            Console.WriteLine(UserValueX);
+            bool isOK = false;
 
-            if (UserValueX <= 12 && UserValueX >= NombreCase)
+            do
             {
-                Console.Write("Choisissez la case horizontale : ");
-            }
-            else
+                if (UserValueX >= 12 && UserValueX <= NombreCase)
+                {
+                    isOK = true;
+                }
+            } while (isOK == false);
 
-            /*
-            int UserValueX = 0;
+            Console.Write("Choissisez une valeur pour le vertical : ");
+            int UserValueY = Console.Read();
+            isOK = false;
 
-            UserValueX = Console.Write("Choisissez la case horizontale : ");
-            
+            do
+            {
+                if (UserValueX >= 12 && UserValueX <= NombreCase)
+                {
+                    isOK = true;
+                }
+            } while (isOK == false);
+
+            int[,] Tableau = new int[UserValueX, UserValueY];
+
+
             Console.Write(UserValueX);
+        Console.Write(UserValueY);
 
-            
-            while (UserValueX <= 12 || UserValueX >= NombreCase)
-            {
-                Console.Write("Choisissez la case horizontale : ");
-            }
-
-            Console.Write("Choisissez la case verticale : ");
-            int UserValueY = 0;
-
-            while (UserValueY <= 12 || UserValueY >= NombreCase)
-            {
-                Console.Write("Choisissez la case verticale : ");
-            }*/
             Console.Read();
+            */
+
         }
         static void DessinerBateau(int x, int y, int longueur)
         {
