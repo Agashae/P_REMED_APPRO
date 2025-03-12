@@ -134,7 +134,7 @@ namespace Jeux
             }
             Console.Write("═══╝");
 
-            
+
 
 
             /*
@@ -149,8 +149,8 @@ namespace Jeux
             DessinerBateau(9, 4, 3);
             DessinerBateau(8, 8, 4);
             DessinerBateau(2, 2, 5);
-            
-            
+
+
             Console.Clear();
             Title();
 
@@ -234,66 +234,84 @@ namespace Jeux
              * Voici le lien pour comprendre mon problème depuis avant sur les valeurs de l'utilisateur : https://learn.microsoft.com/fr-fr/dotnet/api/system.int32.parse?view=net-8.0
              */
 
-            Console.Write("Choissisez une valeur pour l'horizontal : ");
-            int UserValueHorizontal = int.Parse(Console.ReadLine());
-            bool isOK = false;
-            do
+
+            for (int i = 1; i <= 30; i++)
             {
-                if (UserValueHorizontal >= 1 && UserValueHorizontal <= NombreCase)
+
+                Console.WriteLine();
+                Console.Write("Choissisez une valeur pour l'horizontal : ");
+                int UserValueHorizontal = int.Parse(Console.ReadLine());
+                bool isOK = false;
+                do
                 {
-                    isOK = true;
+                    if (UserValueHorizontal >= 1 && UserValueHorizontal <= NombreCase)
+                    {
+                        isOK = true;
+                    }
+                    else
+                    {
+                        Console.Write($"Entrez une valeur entre 12 et {NombreCase} : ");
+                        UserValueHorizontal = int.Parse(Console.ReadLine());
+                    }
+                } while (!isOK);
+
+                Console.Write("Choissisez une valeur pour le vertical : ");
+                int UserValueVerticale = int.Parse(Console.ReadLine());
+                isOK = false;
+                do
+                {
+                    if (UserValueVerticale >= 1 && UserValueVerticale <= NombreCase)
+                    {
+                        isOK = true;
+                    }
+                    else
+                    {
+                        Console.Write($"Entrez une valeur entre 12 et {NombreCase} : ");
+                        UserValueVerticale = int.Parse(Console.ReadLine());
+                    }
+                } while (!isOK);
+
+                // toutes les positions des bateaux... c'était long
+                bool ToucherBateau = (UserValueHorizontal == 6 && UserValueVerticale == 5) ||
+                                     (UserValueHorizontal == 7 && UserValueVerticale == 5) ||
+                                     (UserValueHorizontal == 9 && UserValueVerticale == 4) ||
+                                     (UserValueHorizontal == 10 && UserValueVerticale == 4) ||
+                                     (UserValueHorizontal == 11 && UserValueVerticale == 4) ||
+                                     (UserValueHorizontal == 8 && UserValueVerticale == 8) ||
+                                     (UserValueHorizontal == 9 && UserValueVerticale == 8) ||
+                                     (UserValueHorizontal == 10 && UserValueVerticale == 8) ||
+                                     (UserValueHorizontal == 11 && UserValueVerticale == 8) ||
+                                     (UserValueHorizontal == 2 && UserValueVerticale == 2) ||
+                                     (UserValueHorizontal == 3 && UserValueVerticale == 2) ||
+                                     (UserValueHorizontal == 4 && UserValueVerticale == 2) ||
+                                     (UserValueHorizontal == 5 && UserValueVerticale == 2) ||
+                                     (UserValueHorizontal == 6 && UserValueVerticale == 2);
+
+
+                int positionX = 2 + (UserValueHorizontal - 2) * 4; // Ajustement horizontal
+                int positionY = 1 + (UserValueVerticale - 2) * 2; // Ajustement vertical
+
+                if (ToucherBateau)
+                {
+                    Console.WriteLine("GG, c'est touché !");
+                    Console.SetCursorPosition(positionX, positionY);
+                    Console.ForegroundColor = ConsoleColor.Green;  // Couleur du pion
+                    Console.Write("O");
+                    Console.ResetColor(); // Réinitialiser la couleur pour les autres textes
                 }
                 else
                 {
-                    Console.Write($"Entrez une valeur entre 12 et {NombreCase} : ");
-                    UserValueHorizontal = int.Parse(Console.ReadLine());
+                    Console.WriteLine("Vous avez fail !");
+                    Console.SetCursorPosition(positionX, positionY);
+                    Console.ForegroundColor = ConsoleColor.Red;  // Couleur de la croix
+                    Console.Write("X");
+                    Console.ResetColor(); // Réinitialiser la couleur pour les autres textes
                 }
-            } while (!isOK);
 
-            Console.Write("Choissisez une valeur pour le vertical : ");
-            int UserValueVerticale = int.Parse(Console.ReadLine());
-            isOK = false;
-            do
-            {
-                if (UserValueVerticale >= 1 && UserValueVerticale <= NombreCase)
-                {
-                    isOK = true;
-                }
-                else
-                {
-                    Console.Write($"Entrez une valeur entre 12 et {NombreCase} : ");
-                    UserValueVerticale = int.Parse(Console.ReadLine());
-                }
-            } while (!isOK);
+                Console.WriteLine("Vous pouvez jouer encore" +(30-i)+ "coups");
 
-            // toutes les positions des bateaux... c'était long
-            bool ToucherBateau = (UserValueHorizontal == 6 && UserValueVerticale == 5) ||
-                                 (UserValueHorizontal == 7 && UserValueVerticale == 5) ||
-                                 (UserValueHorizontal == 9 && UserValueVerticale == 4) ||
-                                 (UserValueHorizontal == 10 && UserValueVerticale == 4) ||
-                                 (UserValueHorizontal == 11 && UserValueVerticale == 4) ||
-                                 (UserValueHorizontal == 8 && UserValueVerticale == 8) ||
-                                 (UserValueHorizontal == 9 && UserValueVerticale == 8) ||
-                                 (UserValueHorizontal == 10 && UserValueVerticale == 8) ||
-                                 (UserValueHorizontal == 11 && UserValueVerticale == 8) ||
-                                 (UserValueHorizontal == 2 && UserValueVerticale == 2) ||
-                                 (UserValueHorizontal == 3 && UserValueVerticale == 2) ||
-                                 (UserValueHorizontal == 4 && UserValueVerticale == 2) ||
-                                 (UserValueHorizontal == 5 && UserValueVerticale == 2) ||
-                                 (UserValueHorizontal == 6 && UserValueVerticale == 2);
-
-      
-            if (ToucherBateau)
-            {
-                Console.WriteLine("GG, c'est touché !");
             }
-            else
-            {
-                Console.WriteLine("Vous avez fail !");
-            }
-
-            Console.Read();
-
+            Console.WriteLine("Vous avez fini de jouer !");
 
         }
         static void DessinerBateau(int x, int y, int longueur)
