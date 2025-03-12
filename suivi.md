@@ -99,3 +99,7 @@
         - 15h40-16h40 Création du tableau d'historique + Clean mon code en ajoutant + de méthode
         - 19h45-20h45 Problème depuis chez moi avec System.ArgumentOutOfRangeException 
         - 21h00-21h30 Valeur X et Y choisit par l'utilisateur 
+    
+     - 12.3.25
+        - 19h00-19h15 Documentation sur int.Parse
+        -19h15-20h00 Code sur les valeurs de l'utilisateur

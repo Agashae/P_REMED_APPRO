@@ -150,7 +150,7 @@ namespace Jeux
             DessinerBateau(8, 8, 4);
             DessinerBateau(2, 2, 5);
             
-            /*
+            
             Console.Clear();
             Title();
 
@@ -229,38 +229,71 @@ namespace Jeux
             }
             Console.Write("═══╝");
 
-            Console.Write("Choissisez une valeur pour l'horizontal : ");
-            int UserValueX = Console.Read();
-            bool isOK = false;
+            /* 
+             * int.Parse pour convertir en int les string, c'est pour les valeurs de l'utilisateur
+             * Voici le lien pour comprendre mon problème depuis avant sur les valeurs de l'utilisateur : https://learn.microsoft.com/fr-fr/dotnet/api/system.int32.parse?view=net-8.0
+             */
 
+            Console.Write("Choissisez une valeur pour l'horizontal : ");
+            int UserValueHorizontal = int.Parse(Console.ReadLine());
+            bool isOK = false;
             do
             {
-                if (UserValueX >= 12 && UserValueX <= NombreCase)
+                if (UserValueHorizontal >= 1 && UserValueHorizontal <= NombreCase)
                 {
                     isOK = true;
                 }
-            } while (isOK == false);
+                else
+                {
+                    Console.Write($"Entrez une valeur entre 12 et {NombreCase} : ");
+                    UserValueHorizontal = int.Parse(Console.ReadLine());
+                }
+            } while (!isOK);
 
             Console.Write("Choissisez une valeur pour le vertical : ");
-            int UserValueY = Console.Read();
+            int UserValueVerticale = int.Parse(Console.ReadLine());
             isOK = false;
-
             do
             {
-                if (UserValueX >= 12 && UserValueX <= NombreCase)
+                if (UserValueVerticale >= 1 && UserValueVerticale <= NombreCase)
                 {
                     isOK = true;
                 }
-            } while (isOK == false);
+                else
+                {
+                    Console.Write($"Entrez une valeur entre 12 et {NombreCase} : ");
+                    UserValueVerticale = int.Parse(Console.ReadLine());
+                }
+            } while (!isOK);
 
-            int[,] Tableau = new int[UserValueX, UserValueY];
+            // toutes les positions des bateaux... c'était long
+            bool ToucherBateau = (UserValueHorizontal == 6 && UserValueVerticale == 5) ||
+                                 (UserValueHorizontal == 7 && UserValueVerticale == 5) ||
+                                 (UserValueHorizontal == 9 && UserValueVerticale == 4) ||
+                                 (UserValueHorizontal == 10 && UserValueVerticale == 4) ||
+                                 (UserValueHorizontal == 11 && UserValueVerticale == 4) ||
+                                 (UserValueHorizontal == 8 && UserValueVerticale == 8) ||
+                                 (UserValueHorizontal == 9 && UserValueVerticale == 8) ||
+                                 (UserValueHorizontal == 10 && UserValueVerticale == 8) ||
+                                 (UserValueHorizontal == 11 && UserValueVerticale == 8) ||
+                                 (UserValueHorizontal == 2 && UserValueVerticale == 2) ||
+                                 (UserValueHorizontal == 3 && UserValueVerticale == 2) ||
+                                 (UserValueHorizontal == 4 && UserValueVerticale == 2) ||
+                                 (UserValueHorizontal == 5 && UserValueVerticale == 2) ||
+                                 (UserValueHorizontal == 6 && UserValueVerticale == 2);
 
-
-            Console.Write(UserValueX);
-        Console.Write(UserValueY);
+      
+            if (ToucherBateau)
+            {
+                Console.WriteLine("GG, c'est touché !");
+            }
+            else
+            {
+                Console.WriteLine("Vous avez fail !");
+            }
 
             Console.Read();
-            */
+
 
         }
         static void DessinerBateau(int x, int y, int longueur)
