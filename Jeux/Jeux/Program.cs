@@ -20,11 +20,16 @@ namespace Jeux
         }
         static void Accueil()
         {
-            // Dessiner les 3 "cases" pour les options
+            // Dessiner les 2 "cases" pour les options
             Console.WriteLine("╔══════════════╗  ╔══════════════╗ ");
             Console.WriteLine("║  1. Règles   ║  ║    2. Jeu    ║ ");
             Console.WriteLine("╚══════════════╝  ╚══════════════╝ ");
             Console.WriteLine();
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("SOYEZ EN PLEIN ÉCRAN, tapez 1 pour si c'est bon)");
+            Console.ResetColor();
+
+
             Console.Write("Entrez votre choix (1 ou 2) : ");
 
             string choix = Console.ReadLine();
@@ -149,7 +154,7 @@ namespace Jeux
             DessinerBateau(9, 4, 3);
             DessinerBateau(8, 8, 4);
             DessinerBateau(2, 2, 5);
-
+            
 
             Console.Clear();
             Title();
@@ -235,10 +240,22 @@ namespace Jeux
              */
 
 
+
+
             for (int i = 1; i <= 30; i++)
             {
+                Console.SetCursorPosition(80, 1);
+                Console.WriteLine("Porte avion c'est  ███ ███ ███ ███ ███ ");
+                Console.SetCursorPosition(80, 3);
+                Console.WriteLine("Croiseur c'est ███ ███ ███ ███ ");
+                Console.SetCursorPosition(80, 5);
+                Console.WriteLine("ContreTorpilleurs c'est ███ ███ ███ ");
+                Console.SetCursorPosition(80, 7);
+                Console.WriteLine("Torpilleur c'est ███ ███ ");
 
-                Console.WriteLine();
+                Console.SetCursorPosition(80, 10);
+                Console.Write("                                                                  ");
+                Console.SetCursorPosition(80,10);
                 Console.Write("Choissisez une valeur pour l'horizontal : ");
                 int UserValueHorizontal = int.Parse(Console.ReadLine());
                 bool isOK = false;
@@ -250,11 +267,16 @@ namespace Jeux
                     }
                     else
                     {
-                        Console.Write($"Entrez une valeur entre 12 et {NombreCase} : ");
+                        Console.SetCursorPosition(80, 11);
+                        Console.Write("                                                                  ");
+                        Console.SetCursorPosition(80, 11);
+                        Console.Write("Entrez une valeur entre 12 et " + NombreCase + ": ");
                         UserValueHorizontal = int.Parse(Console.ReadLine());
                     }
                 } while (!isOK);
-
+                Console.SetCursorPosition(80, 12);
+                Console.Write("                                                                  ");
+                Console.SetCursorPosition(80, 12);
                 Console.Write("Choissisez une valeur pour le vertical : ");
                 int UserValueVerticale = int.Parse(Console.ReadLine());
                 isOK = false;
@@ -266,7 +288,10 @@ namespace Jeux
                     }
                     else
                     {
-                        Console.Write($"Entrez une valeur entre 12 et {NombreCase} : ");
+                        Console.SetCursorPosition(80, 13);
+                        Console.Write("                                                                  ");
+                        Console.SetCursorPosition(80, 13);
+                        Console.Write("Entrez une valeur entre 12 et " + NombreCase + ": ");
                         UserValueVerticale = int.Parse(Console.ReadLine());
                     }
                 } while (!isOK);
@@ -288,12 +313,19 @@ namespace Jeux
                                      (UserValueHorizontal == 6 && UserValueVerticale == 2);
 
 
-                int positionX = 2 + (UserValueHorizontal - 2) * 4; // Ajustement horizontal
-                int positionY = 1 + (UserValueVerticale - 2) * 2; // Ajustement vertical
+                int positionX = 2 + UserValueHorizontal * 4; // Ajustement horizontal
+                int positionY = 2 + UserValueVerticale * 2; // Ajustement vertical
+                int lastLine;
+
 
                 if (ToucherBateau)
                 {
+                    Console.SetCursorPosition(80, 14);
+                    Console.Write("                                                                  ");
+                    Console.SetCursorPosition(80, 14);
                     Console.WriteLine("GG, c'est touché !");
+                    lastLine = Console.CursorTop;// Déplacer le curseur une ligne en dessous de la dernière ligne utilisée
+                    Console.SetCursorPosition(0, lastLine);
                     Console.SetCursorPosition(positionX, positionY);
                     Console.ForegroundColor = ConsoleColor.Green;  // Couleur du pion
                     Console.Write("O");
@@ -301,18 +333,47 @@ namespace Jeux
                 }
                 else
                 {
+                    Console.SetCursorPosition(80, 15);
+                    Console.Write("                                                                  ");
+                    Console.SetCursorPosition(80, 15);
                     Console.WriteLine("Vous avez fail !");
+                    lastLine = Console.CursorTop;// Déplacer le curseur une ligne en dessous de la dernière ligne utilisée
+                    Console.SetCursorPosition(0, lastLine);
                     Console.SetCursorPosition(positionX, positionY);
                     Console.ForegroundColor = ConsoleColor.Red;  // Couleur de la croix
                     Console.Write("X");
                     Console.ResetColor(); // Réinitialiser la couleur pour les autres textes
                 }
+                Console.SetCursorPosition(0, lastLine);
+                Console.SetCursorPosition(80, 16);
+                Console.WriteLine("Vous pouvez jouer encore " + (30 - i) + " coups");
 
-                Console.WriteLine("Vous pouvez jouer encore" +(30-i)+ "coups");
-
+                if (ToucherBateau = (UserValueHorizontal == 6 && UserValueVerticale == 5) &&
+                                     (UserValueHorizontal == 7 && UserValueVerticale == 5) &&
+                                     (UserValueHorizontal == 9 && UserValueVerticale == 4) &&
+                                     (UserValueHorizontal == 10 && UserValueVerticale == 4) &&
+                                     (UserValueHorizontal == 11 && UserValueVerticale == 4) &&
+                                     (UserValueHorizontal == 8 && UserValueVerticale == 8) &&
+                                     (UserValueHorizontal == 9 && UserValueVerticale == 8) &&
+                                     (UserValueHorizontal == 10 && UserValueVerticale == 8) &&
+                                     (UserValueHorizontal == 11 && UserValueVerticale == 8) &&
+                                     (UserValueHorizontal == 2 && UserValueVerticale == 2) &&
+                                     (UserValueHorizontal == 3 && UserValueVerticale == 2) &&
+                                     (UserValueHorizontal == 4 && UserValueVerticale == 2) &&
+                                     (UserValueHorizontal == 5 && UserValueVerticale == 2) &&
+                                     (UserValueHorizontal == 6 && UserValueVerticale == 2))
+                {
+                    Console.Clear();
+                    Console.Write("                                                                  ");
+                    Console.SetCursorPosition(80, 17);
+                    Console.WriteLine("Vous avez gagné !");
+                }
             }
+            Console.Clear();
+            
+            Console.SetCursorPosition(80, 1);
             Console.WriteLine("Vous avez fini de jouer !");
-
+            DessinDeFin();
         }
         static void DessinerBateau(int x, int y, int longueur)
         {
@@ -376,5 +437,30 @@ namespace Jeux
 
         }
 
+        static void DessinDeFin()
+        {
+            Console.WriteLine("      _______      ");
+            Console.WriteLine("     /       \\     ");
+            Console.WriteLine("    /         \\    ");
+            Console.WriteLine("   |  O     O  |   ");
+            Console.WriteLine("   |     >     |   ");
+            Console.WriteLine("   |   \\___/   |   ");
+            Console.WriteLine("    \\_________/    ");
+            Console.WriteLine("       | |         ");
+            Console.WriteLine("       | |         ");
+            Console.WriteLine("      /   \\        ");
+            Console.WriteLine("     /     \\       ");   
+        }
+
     }
 }
+
+
+
+
+
+
+
+
+
+

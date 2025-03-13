@@ -105,3 +105,7 @@
         - 19h15-20h00 Code sur les valeurs de l'utilisateur
         - 20h00-21h00 Création de l'historique des coups de l'utilisateur
         - 21h00-21h15 Faire la boucle pour les 30 coups
+     - 13.3.25
+        - 8h00-8h30 Documentation sur les valeurs du user dans le code
+        - 8h30-10h00 Régler l'histoirque et le système de victoire
+        - 10h00-12h00 Finaliser le code
