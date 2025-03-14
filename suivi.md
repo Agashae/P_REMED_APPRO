@@ -109,3 +109,14 @@
         - 8h00-8h30 Documentation sur les valeurs du user dans le code
         - 8h30-10h00 Régler l'histoirque et le système de victoire
         - 10h00-12h00 Finaliser le code
+
+        
+## 14.3
+
+- Feedback XCL
+    - Journal et commits OK
+    - Programme OK
+    - Trouvez des améliorations à apporter à votre jeu (vous pouvez les ajouter aux objectifs)
+
+- Journal de travail
+    -
