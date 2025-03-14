@@ -10,6 +10,10 @@ namespace Jeux
     {
         static void Main(string[] args)
         {
+
+            Console.SetWindowSize(160, 40); // Largeur = 120, Hauteur = 40
+
+
             // Définir la taille du tampon de la console
             int newBufferHeight = 50; // Par exemple, 50 lignes
             int newBufferWidth = Console.BufferWidth; // Utiliser la largeur actuelle du tampon
@@ -25,9 +29,8 @@ namespace Jeux
             Console.WriteLine("║  1. Règles   ║  ║    2. Jeu    ║ ");
             Console.WriteLine("╚══════════════╝  ╚══════════════╝ ");
             Console.WriteLine();
-            Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine("SOYEZ EN PLEIN ÉCRAN, tapez 1 pour si c'est bon)");
-            Console.ResetColor();
+
+
 
 
             Console.Write("Entrez votre choix (1 ou 2) : ");
@@ -154,7 +157,7 @@ namespace Jeux
             DessinerBateau(9, 4, 3);
             DessinerBateau(8, 8, 4);
             DessinerBateau(2, 2, 5);
-            
+
 
             Console.Clear();
             Title();
@@ -255,9 +258,23 @@ namespace Jeux
 
                 Console.SetCursorPosition(80, 10);
                 Console.Write("                                                                  ");
-                Console.SetCursorPosition(80,10);
+                Console.SetCursorPosition(80, 10);
                 Console.Write("Choissisez une valeur pour l'horizontal : ");
-                int UserValueHorizontal = int.Parse(Console.ReadLine());
+
+                int UserValueHorizontal = 0;
+
+                try
+                {
+                    UserValueHorizontal = int.Parse(Console.ReadLine());
+                }
+                catch
+                {
+                    Console.SetCursorPosition(80, 11);
+                    Console.Write("                                                                  ");
+                    Console.SetCursorPosition(80, 11);
+                    Console.WriteLine("Entrez une valeur valide : ");
+                }
+          
                 bool isOK = false;
                 do
                 {
@@ -278,6 +295,7 @@ namespace Jeux
                 Console.Write("                                                                  ");
                 Console.SetCursorPosition(80, 12);
                 Console.Write("Choissisez une valeur pour le vertical : ");
+
                 int UserValueVerticale = int.Parse(Console.ReadLine());
                 isOK = false;
                 do
@@ -330,6 +348,29 @@ namespace Jeux
                     Console.ForegroundColor = ConsoleColor.Green;  // Couleur du pion
                     Console.Write("O");
                     Console.ResetColor(); // Réinitialiser la couleur pour les autres textes
+                    Console.SetCursorPosition(0, lastLine);
+                    Console.SetCursorPosition(80, 16);
+                    Console.WriteLine("Vous pouvez jouer encore " + (30 - i) + " coups");
+                }
+                else if (ToucherBateau = (UserValueHorizontal == 6 && UserValueVerticale == 5) &&
+                     (UserValueHorizontal == 7 && UserValueVerticale == 5) &&
+                     (UserValueHorizontal == 9 && UserValueVerticale == 4) &&
+                     (UserValueHorizontal == 10 && UserValueVerticale == 4) &&
+                     (UserValueHorizontal == 11 && UserValueVerticale == 4) &&
+                     (UserValueHorizontal == 8 && UserValueVerticale == 8) &&
+                     (UserValueHorizontal == 9 && UserValueVerticale == 8) &&
+                     (UserValueHorizontal == 10 && UserValueVerticale == 8) &&
+                     (UserValueHorizontal == 11 && UserValueVerticale == 8) &&
+                     (UserValueHorizontal == 2 && UserValueVerticale == 2) &&
+                     (UserValueHorizontal == 3 && UserValueVerticale == 2) &&
+                     (UserValueHorizontal == 4 && UserValueVerticale == 2) &&
+                     (UserValueHorizontal == 5 && UserValueVerticale == 2) &&
+                     (UserValueHorizontal == 6 && UserValueVerticale == 2))
+                {
+                    Console.Clear();
+                    Console.Write("                                                                  ");
+                    Console.SetCursorPosition(80, 17);
+                    Console.WriteLine("Vous avez gagné !");
                 }
                 else
                 {
@@ -343,37 +384,35 @@ namespace Jeux
                     Console.ForegroundColor = ConsoleColor.Red;  // Couleur de la croix
                     Console.Write("X");
                     Console.ResetColor(); // Réinitialiser la couleur pour les autres textes
+                    Console.SetCursorPosition(0, lastLine);
+                    Console.SetCursorPosition(80, 16);
+                    Console.WriteLine("Vous pouvez jouer encore " + (30 - i) + " coups");
                 }
-                Console.SetCursorPosition(0, lastLine);
-                Console.SetCursorPosition(80, 16);
-                Console.WriteLine("Vous pouvez jouer encore " + (30 - i) + " coups");
 
-                if (ToucherBateau = (UserValueHorizontal == 6 && UserValueVerticale == 5) &&
-                                     (UserValueHorizontal == 7 && UserValueVerticale == 5) &&
-                                     (UserValueHorizontal == 9 && UserValueVerticale == 4) &&
-                                     (UserValueHorizontal == 10 && UserValueVerticale == 4) &&
-                                     (UserValueHorizontal == 11 && UserValueVerticale == 4) &&
-                                     (UserValueHorizontal == 8 && UserValueVerticale == 8) &&
-                                     (UserValueHorizontal == 9 && UserValueVerticale == 8) &&
-                                     (UserValueHorizontal == 10 && UserValueVerticale == 8) &&
-                                     (UserValueHorizontal == 11 && UserValueVerticale == 8) &&
-                                     (UserValueHorizontal == 2 && UserValueVerticale == 2) &&
-                                     (UserValueHorizontal == 3 && UserValueVerticale == 2) &&
-                                     (UserValueHorizontal == 4 && UserValueVerticale == 2) &&
-                                     (UserValueHorizontal == 5 && UserValueVerticale == 2) &&
-                                     (UserValueHorizontal == 6 && UserValueVerticale == 2))
-                {
-                    Console.Clear();
-                    Console.Write("                                                                  ");
-                    Console.SetCursorPosition(80, 17);
-                    Console.WriteLine("Vous avez gagné !");
-                }
+
+
             }
             Console.Clear();
-            
+
             Console.SetCursorPosition(80, 1);
             Console.WriteLine("Vous avez fini de jouer !");
             DessinDeFin();
+
+            Console.WriteLine("Voulez-vous rejouer ? 1 pour oui et 2 pour non");
+            string Recommencer = Console.ReadLine();
+            if (Recommencer == ("1"))
+            {
+                Accueil();
+            }
+            else if (Recommencer == ("2"))
+            {
+                Console.WriteLine("Aurevoir");
+            }
+            else
+            {
+                Console.WriteLine("1 OU 2....");
+            }
+
         }
         static void DessinerBateau(int x, int y, int longueur)
         {
@@ -409,11 +448,130 @@ namespace Jeux
             Console.WriteLine("Pour les Contre Torpilleurs c'est : ███ ███ ███");
             Console.WriteLine(" ");
             Console.WriteLine("Pour les Torpilleurs c'est : ███ ███");
+
+
+
+
+            int NombreCase = 8;
+
+            // mettre NombreCase pour avoir un tableau du même nombre et différent à chaque game
+
+            int MargeTop = 15;
+
+            Console.SetCursorPosition(120, 14);
+            // code ASCII
+
+
+            Console.Write("╔");
+
+            int colonneActuelle = 1;
+            while (colonneActuelle < NombreCase)
+            {
+                Console.Write("═══╦");
+                colonneActuelle++;
+            }
+
+            Console.WriteLine("═══╗");
+            Console.SetCursorPosition(120, MargeTop++);
+
+
+            int ligneActuelle = 1;
+
+            while (ligneActuelle < NombreCase)
+            {
+
+                Console.Write("║");
+
+
+                colonneActuelle = 1;
+
+                while (colonneActuelle < NombreCase)
+                {
+                    Console.Write("   ║");
+                    colonneActuelle++;
+                }
+                Console.WriteLine("   ║");
+                Console.SetCursorPosition(120, MargeTop++);
+
+                Console.Write("╠");
+
+                colonneActuelle = 1;
+
+                while (colonneActuelle < NombreCase)
+                {
+                    Console.Write("═══╬");
+                    colonneActuelle++;
+                }
+                Console.WriteLine("═══╣");
+                Console.SetCursorPosition(120, MargeTop++);
+
+                ligneActuelle++;
+            }
+
+            Console.Write("║");
+
+            colonneActuelle = 1;
+
+            while (colonneActuelle < NombreCase)
+            {
+                Console.Write("   ║");
+                colonneActuelle++;
+            }
+            Console.WriteLine("   ║");
+            Console.SetCursorPosition(120, MargeTop++);
+
+
+            Console.Write("╚");
+
+            colonneActuelle = 1;
+            while (colonneActuelle < NombreCase)
+            {
+                Console.Write("═══╩");
+                colonneActuelle++;
+            }
+            Console.Write("═══╝");
+
+            Console.ForegroundColor = ConsoleColor.Green; 
+            Console.SetCursorPosition(122, 15);
+            Console.Write("O");
+            Console.SetCursorPosition(126, 17);
+            Console.ForegroundColor = ConsoleColor.Red;  
+            Console.Write("X");
+            Console.ResetColor();
+
+            Console.SetCursorPosition(1, 20);
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine("X pour un bateau touché");
+            Console.ResetColor();
+            Console.SetCursorPosition(1, 21);
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("O pour une case sans bateau");
+            Console.ResetColor();
+
+            Console.SetCursorPosition(122,13);
+            Console.WriteLine("H   O   R   I   Z   O   N");
+            Console.SetCursorPosition(118, 15);
+            Console.WriteLine("V");
+            Console.SetCursorPosition(118, 17);
+            Console.WriteLine("E");
+            Console.SetCursorPosition(118, 19);
+            Console.WriteLine("R");
+            Console.SetCursorPosition(118, 21);
+            Console.WriteLine("T");
+            Console.SetCursorPosition(118, 23);
+            Console.WriteLine("I");
+            Console.SetCursorPosition(118, 25);
+            Console.WriteLine("C");
+            Console.SetCursorPosition(118, 27);
+            Console.WriteLine("A");
+            Console.SetCursorPosition(118, 29);
+            Console.WriteLine("L");
+
+
+            Console.SetCursorPosition(1,22);
             Console.WriteLine("");
             Console.WriteLine("Tapez e pour quitter");
             string quitter = Console.ReadLine();
-
-
             if (quitter == "e")
             {
                 Accueil();
@@ -449,18 +607,8 @@ namespace Jeux
             Console.WriteLine("       | |         ");
             Console.WriteLine("       | |         ");
             Console.WriteLine("      /   \\        ");
-            Console.WriteLine("     /     \\       ");   
+            Console.WriteLine("     /     \\       ");
         }
 
     }
 }
-
-
-
-
-
-
-
-
-
-
