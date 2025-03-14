@@ -119,4 +119,9 @@
     - Trouvez des améliorations à apporter à votre jeu (vous pouvez les ajouter aux objectifs)
 
 - Journal de travail
-    -
+    - 14.3.25
+        - 14h00-14h45 permettre que le terminal soit en plus grand
+        - 15h00-1h25 Voulez-vous rejouer ?
+        - 15h25-16h25 Faire une grille d'exemple dans les règles 
+        - 16h25-16h35 Donner le final du projet
+
