@@ -132,7 +132,7 @@ Je suis assez embêté avec votre projet.
 
 Vous avez travaillé de manière sérieuse, concentrée, régulière tout au long du projet. Vous m'avez posé des questions, vous avez tenu compte de mes retours. Vu de l'extérieur, votre programme à progresseé de manière régulière et correcte.
 
-Du coup, je n'ai pas prêté attention suffisante aux détails de la réalisation. Vous avez réussi à faire quelque chose de fonctionnel, mais qui n'est malheureusement pas bien construit. Et c'est à cause de ce défaut de conception que votre test pour savoir si un bateau a été touché était long.
+Du coup, je n'ai pas prêté suffisamment attention aux détails de la réalisation. Vous avez réussi à faire quelque chose de fonctionnel, mais qui n'est malheureusement pas bien construit. Et c'est à cause de ce défaut de conception que votre test pour savoir si un bateau a été touché était long.
 
 La bonne manière de faire consiste à avoir un **modèle**, c'est-à-dire des données qui représentent l'état de votre jeu. Il n'y a pas de telles données dans votre programme. C'est pour cela que cela a été si long de faire le test.
 
@@ -163,18 +163,18 @@ model[9,4] = 1; // partie 2 du contre-torpilleur
 model[10,4] = 1; // partie 3 du contre-torpilleur
 // etc ...
 ```
-Une fois que vous avez ce modèle, il vous faut une méthode qui va remplir les cases de la grille en fonction des valeurs qui sont dans le modèle.
+Une fois que vous avez ce modèle, il vous faut une méthode qui va remplir les cases de la grille que l'utilisateur a devant lui en fonction des valeurs qui sont dans le modèle.
 
 Voici l'algorithme à suivre sous forme de commentaires (pseudo-code):
-
-// Pour chaque ligne, de 0 à 11
-//    Pour chaque colonne, de 0 à 11
-//        Positionner le curseur dans la case de la grille
-//        Si model[0,0] == 0 dessiner une case vide: " "
-//        Si model[0,0] == 1 dessiner une case vide aussi puisque le bateau est caché
-//        Si model[0,0] == 2 dessiner une case "Touché": "O" 
-//        Si model[0,0] == 3 dessiner une case "Fail": "X"
-
+```
+// Pour chaque ligne, de 0 à 11  
+//    Pour chaque colonne, de 0 à 11  
+//        Positionner le curseur dans la case de la grille  
+//        Si model[0,0] == 0 dessiner une case vide: " "  
+//        Si model[0,0] == 1 dessiner une case vide aussi puisque le bateau est caché  
+//        Si model[0,0] == 2 dessiner une case "Touché": "O"  
+//        Si model[0,0] == 3 dessiner une case "Fail": "X"  
+```
 Je ne peux pas valider votre projet dans l'état actuel. Mais comme je n'ai pas vu le problème assez tôt pour vous mettre sur la bonne voie à temps, je vais vous demander un travail complémentaire pour lequel je vais vous laisser un délai d'une semaine.
 
 Ce travail consiste à intégrer ce que je vous ai écrit ci-dessus dans votre code.
