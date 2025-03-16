@@ -125,3 +125,59 @@
         - 15h25-16h25 Faire une grille d'exemple dans les règles 
         - 16h25-16h35 Donner le final du projet
 
+
+# Conclusion
+
+Je suis assez embêté avec votre projet. 
+
+Vous avez travaillé de manière sérieuse, concentrée, régulière tout au long du projet. Vous m'avez posé des questions, vous avez tenu compte de mes retours. Vu de l'extérieur, votre programme à progresseé de manière régulière et correcte.
+
+Du coup, je n'ai pas prêté attention suffisante aux détails de la réalisation. Vous avez réussi à faire quelque chose de fonctionnel, mais qui n'est malheureusement pas bien construit. Et c'est à cause de ce défaut de conception que votre test pour savoir si un bateau a été touché était long.
+
+La bonne manière de faire consiste à avoir un **modèle**, c'est-à-dire des données qui représentent l'état de votre jeu. Il n'y a pas de telles données dans votre programme. C'est pour cela que cela a été si long de faire le test.
+
+Dans votre cas, le modèle est un tableau à deux dimensions d'entiers:
+(à déclarer au tout début de la classe `Program`, juste avant `Main`)
+```csharp
+static int[,] model = new int[12, 12];
+```
+Ce tableau représente une grille de 12/12. On met dedans des valeurs qui correspondent à l'état de la case. Par exemple : 0 = eau, 1 = (partie de) bateau caché, 2 = (partie de ) bateau touché, 3 = tir dans l'eau.
+
+À partir de là, il devient très facile de savoir si un tir a touché un bateau. Il suffit de faire :
+```csharp
+if (model[UserValueHorizontal,UserValueVertical] == 1) // on a touché un bateau caché
+{
+    model[UserValueHorizontal,UserValueVertical] = 2; // marquer le bateau comme touché
+}
+if (model[UserValueHorizontal,UserValueVertical] == 0) // on a tiré dans de l'eau
+{
+    model[UserValueHorizontal,UserValueVertical] = 3; // marquer ce tir dans l'eau
+}
+```
+Après avoir déclaré votre modèle, il faut positionner les bateaux. Cela se fait ainsi :
+```csharp
+model[3,3] = 1; // partie 1 du torpilleur
+model[3,4] = 1; // partie 2 du torpilleur
+model[8,4] = 1; // partie 1 du contre-torpilleur
+model[9,4] = 1; // partie 2 du contre-torpilleur
+model[10,4] = 1; // partie 3 du contre-torpilleur
+// etc ...
+```
+Une fois que vous avez ce modèle, il vous faut une méthode qui va remplir les cases de la grille en fonction des valeurs qui sont dans le modèle.
+
+Voici l'algorithme à suivre sous forme de commentaires (pseudo-code):
+
+// Pour chaque ligne, de 0 à 11
+//    Pour chaque colonne, de 0 à 11
+//        Positionner le curseur dans la case de la grille
+//        Si model[0,0] == 0 dessiner une case vide: " "
+//        Si model[0,0] == 1 dessiner une case vide aussi puisque le bateau est caché
+//        Si model[0,0] == 2 dessiner une case "Touché": "O" 
+//        Si model[0,0] == 3 dessiner une case "Fail": "X"
+
+Je ne peux pas valider votre projet dans l'état actuel. Mais comme je n'ai pas vu le problème assez tôt pour vous mettre sur la bonne voie à temps, je vais vous demander un travail complémentaire pour lequel je vais vous laisser un délai d'une semaine.
+
+Ce travail consiste à intégrer ce que je vous ai écrit ci-dessus dans votre code.
+
+Je passerai vers vous lundi dans la journée pour que nous soyons sûr que vous avez bien compris l'objectif.
+
