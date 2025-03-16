@@ -181,3 +181,4 @@ Ce travail consiste à intégrer ce que je vous ai écrit ci-dessus dans votre c
 
 Je passerai vers vous lundi dans la journée pour que nous soyons sûr que vous avez bien compris l'objectif.
 
+Cela dit, il reste un problème dans votre projet pour lequel je ne vois pas d'explication: vous avez marqué dans votre status que l'objectif "Le programme choisit entre 5 grilles" est atteint, mais ce n'est pas le cas.
