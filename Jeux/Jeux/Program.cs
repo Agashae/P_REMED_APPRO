@@ -8,6 +8,7 @@ namespace Jeux
 {
     internal class Program
     {
+        static int[,] model = new int[12, 12];
         static void Main(string[] args)
         {
 
@@ -153,10 +154,23 @@ namespace Jeux
             String Torpilleur = ("███║███");
             */
 
-            DessinerBateau(6, 5, 2);
-            DessinerBateau(9, 4, 3);
-            DessinerBateau(8, 8, 4);
-            DessinerBateau(2, 2, 5);
+            model[6, 5] = 1; // partie 1 du Bateau 1
+            model[7, 5] = 1; // partie 2 du Bateau 1
+
+            model[9, 4] = 1; // partie 1 du Bateau 2
+            model[10, 4] = 1; // partie 2 du Bateau 2
+            model[11, 4] = 1; // partie 3 du Bateau 2
+
+            model[8, 8] = 1; // partie 1 du Bateau 3
+            model[9, 8] = 1; // partie 2 du Bateau 3
+            model[10, 8] = 1; // partie 3 du Bateau 3
+            model[11, 8] = 1; // partie 4 du Bateau 3
+
+            model[2, 2] = 1; // partie 1 du Bateau 4
+            model[3, 2] = 1; // partie 2 du Bateau 4
+            model[4, 2] = 1; // partie 3 du Bateau 4
+            model[5, 2] = 1; // partie 4 du Bateau 4
+            model[6, 2] = 1; // partie 5 du Bateau 4
 
 
             Console.Clear();
@@ -314,21 +328,15 @@ namespace Jeux
                     }
                 } while (!isOK);
 
-                // toutes les positions des bateaux... c'était long
-                bool ToucherBateau = (UserValueHorizontal == 6 && UserValueVerticale == 5) ||
-                                     (UserValueHorizontal == 7 && UserValueVerticale == 5) ||
-                                     (UserValueHorizontal == 9 && UserValueVerticale == 4) ||
-                                     (UserValueHorizontal == 10 && UserValueVerticale == 4) ||
-                                     (UserValueHorizontal == 11 && UserValueVerticale == 4) ||
-                                     (UserValueHorizontal == 8 && UserValueVerticale == 8) ||
-                                     (UserValueHorizontal == 9 && UserValueVerticale == 8) ||
-                                     (UserValueHorizontal == 10 && UserValueVerticale == 8) ||
-                                     (UserValueHorizontal == 11 && UserValueVerticale == 8) ||
-                                     (UserValueHorizontal == 2 && UserValueVerticale == 2) ||
-                                     (UserValueHorizontal == 3 && UserValueVerticale == 2) ||
-                                     (UserValueHorizontal == 4 && UserValueVerticale == 2) ||
-                                     (UserValueHorizontal == 5 && UserValueVerticale == 2) ||
-                                     (UserValueHorizontal == 6 && UserValueVerticale == 2);
+                model[3, 3] = 1; // partie 1 du torpilleur
+                model[3, 4] = 1; // partie 2 du torpilleur
+                model[8, 4] = 1; // partie 1 du contre-torpilleur
+                model[9, 4] = 1; // partie 2 du contre-torpilleur
+                model[10, 4] = 1; // partie 3 du contre-torpilleur
+
+
+
+
 
 
                 int positionX = 2 + UserValueHorizontal * 4; // Ajustement horizontal
@@ -336,8 +344,9 @@ namespace Jeux
                 int lastLine;
 
 
-                if (ToucherBateau)
+                if (model[UserValueHorizontal, UserValueVerticale] == 1) // on a touché un bateau caché
                 {
+                    model[UserValueHorizontal, UserValueVerticale] = 2; // marquer le bateau comme touché
                     Console.SetCursorPosition(80, 14);
                     Console.Write("                                                                  ");
                     Console.SetCursorPosition(80, 14);
@@ -352,28 +361,9 @@ namespace Jeux
                     Console.SetCursorPosition(80, 16);
                     Console.WriteLine("Vous pouvez jouer encore " + (30 - i) + " coups");
                 }
-                else if (ToucherBateau = (UserValueHorizontal == 6 && UserValueVerticale == 5) &&
-                     (UserValueHorizontal == 7 && UserValueVerticale == 5) &&
-                     (UserValueHorizontal == 9 && UserValueVerticale == 4) &&
-                     (UserValueHorizontal == 10 && UserValueVerticale == 4) &&
-                     (UserValueHorizontal == 11 && UserValueVerticale == 4) &&
-                     (UserValueHorizontal == 8 && UserValueVerticale == 8) &&
-                     (UserValueHorizontal == 9 && UserValueVerticale == 8) &&
-                     (UserValueHorizontal == 10 && UserValueVerticale == 8) &&
-                     (UserValueHorizontal == 11 && UserValueVerticale == 8) &&
-                     (UserValueHorizontal == 2 && UserValueVerticale == 2) &&
-                     (UserValueHorizontal == 3 && UserValueVerticale == 2) &&
-                     (UserValueHorizontal == 4 && UserValueVerticale == 2) &&
-                     (UserValueHorizontal == 5 && UserValueVerticale == 2) &&
-                     (UserValueHorizontal == 6 && UserValueVerticale == 2))
+                if (model[UserValueHorizontal, UserValueVerticale] == 0) // on a tiré dans de l'eau
                 {
-                    Console.Clear();
-                    Console.Write("                                                                  ");
-                    Console.SetCursorPosition(80, 17);
-                    Console.WriteLine("Vous avez gagné !");
-                }
-                else
-                {
+                    model[UserValueHorizontal, UserValueVerticale] = 3; // marquer ce tir dans l'eau
                     Console.SetCursorPosition(80, 15);
                     Console.Write("                                                                  ");
                     Console.SetCursorPosition(80, 15);
@@ -388,7 +378,6 @@ namespace Jeux
                     Console.SetCursorPosition(80, 16);
                     Console.WriteLine("Vous pouvez jouer encore " + (30 - i) + " coups");
                 }
-
 
 
             }
